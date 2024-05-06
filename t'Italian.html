@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ITALIA: 3 LUGARES QUE DEBES CONOCER</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #SUPERIOR {
+            height: 23%;
+            background-color: #3F448C;
+             border-top: 1px solid #3F448C;
+            overflow: hidden; /* Para evitar que el contenido se desborde */
+        }
+
+        #contenedor {
+            display: flex;
+            flex: 1;
+            overflow: hidden; /* Para evitar que el contenido se desborde */
+        }
+
+        #IZQUIERDO {
+            width: 20%;
+            background-color: #4682B4;
+             border-top: 5px solid #4682B4;
+            overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
+        }
+
+        #CENTRO {
+            flex: 1;
+            overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
+        }
+
+        footer {
+    overflow: hidden;
+    height: 7%;
+    background-color: #ADD8E6;
+    border-top: 1px solid #ADD8E6;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+
+<iframe id="SUPERIOR" name="SUPERIOR.html" src="2SUPERIOR.html"></iframe>
+<div id="contenedor">
+    <iframe id="IZQUIERDO" name="IZQUIERDO.html" src="1IZQUIERDO.html"></iframe>
+    <iframe id="CENTRO" name="CENTRO.html" src="PRINCIPAL.html"></iframe>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2024 t'Italian: EXPERTOS EN HACER REALIDAD TUS SUEÑOS DE VIAJE.</p>
+</footer>
+
+</body>
+</html>

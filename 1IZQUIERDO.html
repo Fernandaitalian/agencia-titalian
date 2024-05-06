@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- FÁTIMA PEÑA CASTELLANOS -->
+    <!-- LUISA FERNANDA PÉREZ GALLEGOS -->
+    <!-- MAYRANI ROBLERO NAFATE -->
+    <!-- MAR Y ARENA ROBLES RAMOS -->
+    <!-- AHMED ABRAHAM SEGURA VALENCIA -->
+    <!-- 6TO SEMESTRE GRUPO B -->
+    <!-- 08 DE MAYO DEL 2024 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t'Italian: Expertos en hacer realidad tus sueños de viaje </title>
+    <style>
+        /* Estilos para el menú */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center; /* Centrar el texto del menú */
+            font-size: 25px; /* Tamaño de fuente para la lista */
+            display: none; /* Ocultar la lista inicialmente */
+            animation: fadeIn 0.5s ease; /* Agregar animación de desvanecimiento al aparecer */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        li a {
+            display: block;
+            color: #000000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* Agregar transición de color al pasar el mouse */
+        }
+
+        li:last-child a {
+            border-right: none; /* No agregar separación al último elemento */
+        }
+
+        li a:hover {
+            background-color: #ADD8E6; /* Color de fondo al pasar el mouse */
+        }
+
+        /* Estilos para el botón de hamburguesa y la etiqueta de Destinos */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hamburger {
+            text-align: right;
+            padding: 10px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #F5FFFA;
+            margin: 5px 0;
+            transition: transform 0.6s; /* Transición para el cambio de orientación */
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div {
+            background-color: red; /* Cambia el color de la barra de la hamburguesa */
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(40deg) translate(-5px, -6px);
+        }
+
+        .destinos-label {
+            font-size: 20px;
+            color: #000;
+            transition: opacity 0.3s; /* Transición para la aparición/desaparición */
+        }
+
+        .destinos-label.estilo-destinos {
+            font-weight: bold;
+            font-family: Times;
+            color: #F5FFFA;
+            font-size: 25px;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        /* Estilos para los consejos de viaje */
+        .consejo-viaje {
+            background-color: #f2f2f2; /* Color de fondo para los divs de consejos de viaje */
+            padding: 20px; /* Espacio alrededor del texto */
+            margin: 20px 0; /* Margen arriba y abajo */
+        }
+    </style>
+</head>
+<body>
+  <!-- Contenedor de la etiqueta de Destinos y el botón de hamburguesa -->
+  <div class="header">
+    <!-- Etiqueta de Destinos -->
+    <div class="destinos-label estilo-destinos">DESTINOS</div>
+
+    <!-- Botón de hamburguesa -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Menú horizontal -->
+  <ul id="menu">
+    <hr>
+    <li><a href="FLORENCIA.html" target="CENTRO.html" onclick="hideMenu()">FLORENCIA</a></li>
+    <li><a href="GENÓVA.html" target="CENTRO.html" onclick="hideMenu()">GENÓVA</a></li>
+    <li><a href="VENECIA.html" target="CENTRO.html" onclick="hideMenu()">VENECIA</a></li>
+    <hr>
+  </ul>
+
+  <script>
+    var menuVisible = false; // Variable para rastrear el estado del menú
+
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      var hamburger = document.querySelector(".hamburger");
+      var destinosLabel = document.querySelector(".destinos-label");
+      var consejoViajeDivs = document.querySelectorAll(".consejo-viaje"); // Selección de los divs de consejos de viaje
+
+      if (!menuVisible) {
+        menu.style.display = "block";
+        hamburger.classList.add("active"); // Añadimos la clase 'active' al botón de hamburguesa
+        destinosLabel.classList.add("hidden"); // Ocultamos la etiqueta de Destinos con transición
+
+        // Ocultar los divs de consejos de viaje
+        consejoViajeDivs.forEach(function(div) {
+          div.style.display = "none";
+        });
+
+        menuVisible = true; // Actualizar el estado del menú
+      } else {
+        menu.style.display = "none";
+        hamburger.classList.remove("active"); // Quitamos la clase 'active' al botón de hamburguesa
+        setTimeout(function() {
+          destinosLabel.classList.remove("hidden"); // Mostramos la etiqueta de Destinos con transición
+
+          // Mostrar nuevamente los divs de consejos de viaje
+          consejoViajeDivs.forEach(function(div) {
+            div.style.display = "block";
+          });
+        }, 200); // Se asegura de que la animación de la hamburguesa termine antes de mostrar la etiqueta
+
+        menuVisible = false; // Actualizar el estado del menú
+      }
+    }
+
+    // Función para ocultar el menú y volver a la posición original al seleccionar un elemento del menú
+    function hideMenu() {
+      var menu = document.getElementById("menu");
+      var hamburger = document.querySelector(".hamburger");
+      var destinosLabel = document.querySelector(".destinos-label");
+      var consejoViajeDivs = document.querySelectorAll(".consejo-viaje");
+
+      menu.style.display = "none";
+      hamburger.classList.remove("active");
+      destinosLabel.classList.remove("hidden");
+
+      consejoViajeDivs.forEach(function(div) {
+        div.style.display = "block";
+      });
+
+      menuVisible = false; // Actualizar el estado del menú
+    }
+  </script>
+
+  <br>
+
+  <div class="consejo-viaje">
+    <h1><center>CONSEJOS DE VIAJE</center></h1>
+    <p><em><center>Si estás planeando un viaje a Italia, aquí tienes algunos consejos útiles para ayudarte a prepararte:</center></em></p>
+
+    <hr>
+
+    <h2><center>CLIMA:</center></h2>
+    <p><em><center>El clima en Italia varía según la región y la época del año. Asegúrate de consultar el pronóstico del tiempo antes de viajar y empaca adecuadamente.</center></em></p>
+
+    <hr>
+
+    <h2><center>MONEDA:</center></h2>
+    <p><em><center>La moneda oficial de Italia es el euro (EUR). Es recomendable cambiar dinero en bancos o casas de cambio para obtener mejores tasas de cambio.</center></em></p>
+
+    <hr>
+
+    <h2><center>TRANSPORTE PÚBLICO:</center></h2>
+    <p><em><center>Italia cuenta con un eficiente sistema de transporte público que incluye trenes, autobuses y metros. Considera comprar una tarjeta de transporte o pases turísticos para ahorrar dinero en tus desplazamientos.</center></em></p>
+
+    <hr>
+
+    <h2><center>SEGURIDAD:</center></h2>
+    <p><em><center>Italia es generalmente un destino seguro para viajar, pero siempre es importante mantenerse alerta y tomar precauciones normales de seguridad, como cuidar tus pertenencias personales y evitar áreas peligrosas durante la noche.</center></em></p>
+  </div>
+</body>
+</html>
